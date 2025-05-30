@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ExternalLink } from "lucide-react"
 import Link from "next/link"
 
 // Ensure all arrays have default empty array fallbacks
@@ -145,6 +145,66 @@ export default function SkillsShowcase() {
             </motion.div>
           ))}
         </div>
+
+        {/* CS50 Certificate Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="mb-12"
+        >
+          <div className="bg-gradient-to-r from-red-500/10 to-pink-500/10 rounded-xl p-8 border border-red-500/20">
+            <div className="flex flex-col lg:flex-row items-center gap-8">
+              {/* Certificate Image */}
+              <div className="flex-shrink-0">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="relative overflow-hidden rounded-lg border border-gray-700"
+                >
+                  <img
+                    src="https://i.imgur.com/CAlBPFz.png"
+                    alt="CS50x Certificate from Harvard University"
+                    className="w-80 h-auto object-cover"
+                  />
+                </motion.div>
+              </div>
+
+              {/* Certificate Info */}
+              <div className="flex-1 text-center lg:text-left">
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ duration: 0.5, delay: 1.2 }}
+                  className="text-3xl font-bold text-white mb-3"
+                >
+                  CS50x
+                </motion.h3>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ duration: 0.5, delay: 1.3 }}
+                  className="text-xl text-red-400 mb-6"
+                >
+                  Issued by Harvard University
+                </motion.p>
+                <motion.a
+                  href="https://certificates.cs50.io/5b1549f5-842c-49c6-aa1b-47526aab89b3.pdf?size=letter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ duration: 0.5, delay: 1.5 }}
+                  whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(239, 68, 68, 0.5)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-red-600 to-pink-600 rounded-lg font-semibold transition-all duration-300"
+                >
+                  <span>View Certificate</span>
+                  <ExternalLink size={18} />
+                </motion.a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* View All Skills Button */}
         <motion.div
